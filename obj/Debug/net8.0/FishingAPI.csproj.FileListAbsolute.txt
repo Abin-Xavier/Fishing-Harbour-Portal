@@ -1,0 +1,9 @@
+C:\Users\abinx\Downloads\Fishing-Harbour-Portal\obj\Debug\net8.0\FishingAPI.csproj.AssemblyReference.cache
+C:\Users\abinx\Downloads\Fishing-Harbour-Portal\obj\Debug\net8.0\rpswa.dswa.cache.json
+C:\Users\abinx\Downloads\Fishing-Harbour-Portal\obj\Debug\net8.0\FishingAPI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\abinx\Downloads\Fishing-Harbour-Portal\obj\Debug\net8.0\FishingAPI.AssemblyInfoInputs.cache
+C:\Users\abinx\Downloads\Fishing-Harbour-Portal\obj\Debug\net8.0\FishingAPI.AssemblyInfo.cs
+C:\Users\abinx\Downloads\Fishing-Harbour-Portal\obj\Debug\net8.0\FishingAPI.csproj.CoreCompileInputs.cache
+C:\Users\abinx\Downloads\Fishing-Harbour-Portal\obj\Debug\net8.0\FishingAPI.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\abinx\Downloads\Fishing-Harbour-Portal\obj\Debug\net8.0\FishingAPI.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\abinx\Downloads\Fishing-Harbour-Portal\obj\Debug\net8.0\FishingAPI.sourcelink.json

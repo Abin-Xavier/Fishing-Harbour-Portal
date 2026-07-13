@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harbour Status — Coastal Fishing Harbour Portal</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header" id="site-header"></header>
+
+<section class="section" style="padding-top:56px;">
+  <div class="container">
+    <span class="section-eyebrow">Live status</span>
+    <h2>Harbour Status</h2>
+    <p style="max-width:560px;">A quick read on what's happening at the harbour right now — boats out, today's landed catch, and registered fishermen.</p>
+
+    <div class="panel mt-32">
+      <div class="panel-strip"></div>
+      <div class="panel-grid">
+        <div class="gauge">
+          <span class="gauge-label">🚢 Active Boats</span>
+          <span class="gauge-value"><span data-countto="45">0</span></span>
+        </div>
+        <div class="gauge">
+          <span class="gauge-label">🐟 Today's Catch</span>
+          <span class="gauge-value"><span data-countto="2.5" data-decimals="1">0</span><span class="gauge-unit">Tons</span></span>
+        </div>
+        <div class="gauge">
+          <span class="gauge-label">👨‍👩‍👧 Registered Fishermen</span>
+          <span class="gauge-value"><span data-countto="120">0</span></span>
+        </div>
+        <div class="gauge">
+          <span class="gauge-label"><span class="pulse-dot"></span> ❄ Cold Storage</span>
+          <span class="gauge-value" style="font-size:1.3rem; color:#5FD68C;">Available</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-3 mt-32">
+      <div class="card">
+        <span class="card-tag">Today</span>
+        <h3>Auction Window</h3>
+        <p>The morning auction runs 6:00 AM–8:00 AM, with a smaller evening auction around 5:00 PM for late landings.</p>
+      </div>
+      <div class="card">
+        <span class="card-tag">Weather</span>
+        <h3>Sea Conditions</h3>
+        <p>Moderate swell expected through the afternoon. Boats heading out should check with the harbour office before departure.</p>
+      </div>
+      <div class="card">
+        <span class="card-tag">Notice</span>
+        <h3>Cold Storage Capacity</h3>
+        <p>Cold storage is running at comfortable capacity today — no holds expected for fresh landings.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer" id="site-footer"></footer>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fish Market — Coastal Fishing Harbour Portal</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header" id="site-header"></header>
+
+<section class="section" style="padding-top:56px;">
+  <div class="container">
+    <span class="section-eyebrow">Fish market</span>
+    <h2>Today's catch &amp; auction prices</h2>
+    <p style="max-width:560px;">Prices are set at the morning auction and updated through the day as new boats land their catch.</p>
+
+    <div class="market-toolbar mt-32">
+      <div class="sort-btns">
+        <button data-sort="name" class="active">Sort: Name</button>
+        <button data-sort="qty">Sort: Quantity</button>
+        <button data-sort="price">Sort: Price</button>
+      </div>
+      <span class="updated-tag">Last updated today, 7:40 AM</span>
+    </div>
+
+    <div class="market-table-wrap">
+      <table class="market-table">
+        <thead>
+          <tr><th>Fish Name</th><th>Quantity</th><th>Price</th></tr>
+        </thead>
+        <tbody id="marketTableBody">
+          <tr data-name="Tuna" data-qty="500" data-price="450">
+            <td class="fish-name">🐟 Tuna</td>
+            <td class="qty mono">500 Kg</td>
+            <td class="price mono">₹450/Kg</td>
+          </tr>
+          <tr data-name="Sardine" data-qty="800" data-price="180">
+            <td class="fish-name">🐟 Sardine</td>
+            <td class="qty mono">800 Kg</td>
+            <td class="price mono">₹180/Kg</td>
+          </tr>
+          <tr data-name="Mackerel" data-qty="300" data-price="250">
+            <td class="fish-name">🐟 Mackerel</td>
+            <td class="qty mono">300 Kg</td>
+            <td class="price mono">₹250/Kg</td>
+          </tr>
+          <tr data-name="Pomfret" data-qty="150" data-price="620">
+            <td class="fish-name">🐟 Pomfret</td>
+            <td class="qty mono">150 Kg</td>
+            <td class="price mono">₹620/Kg</td>
+          </tr>
+          <tr data-name="Prawns" data-qty="220" data-price="540">
+            <td class="fish-name">🦐 Prawns</td>
+            <td class="qty mono">220 Kg</td>
+            <td class="price mono">₹540/Kg</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="form-note mt-32">Prices shown are indicative auction-floor rates and may vary by grade and lot size. For bulk orders, contact the harbour office directly.</p>
+  </div>
+</section>
+
+<footer class="site-footer" id="site-footer"></footer>
+<script src="script.js"></script>
+</body>
+</html>

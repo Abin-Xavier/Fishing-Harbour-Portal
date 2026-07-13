@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boat Registration — Coastal Fishing Harbour Portal</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header" id="site-header"></header>
+
+<section class="section" style="padding-top:56px;">
+  <div class="container">
+    <span class="section-eyebrow">Boat registration</span>
+    <h2>Log a new boat with the harbour office</h2>
+    <p style="max-width:560px;">Fill in the entry below to register a boat for docking, auction access and cold storage privileges. The harbour office reviews every entry before it's confirmed.</p>
+
+    <div class="grid-2 mt-32" style="align-items:flex-start;">
+      <div class="logbook">
+        <div class="logbook-head">
+          <div>
+            <h3 style="margin:0; font-size:1.2rem;">Boat Registration</h3>
+            <span style="font-size:.8rem; opacity:.6;">Harbour Office &middot; Coastal Road</span>
+          </div>
+          <span class="entry-no mono">ENTRY</span>
+        </div>
+
+        <div class="confirm-banner" id="confirmBanner">
+          <span style="font-size:1.3rem;">✅</span>
+          <div>
+            <strong>Boat logged successfully.</strong>
+            <span style="opacity:.8;">The harbour office will confirm your registration shortly.</span>
+          </div>
+        </div>
+
+        <form id="boatForm" novalidate>
+          <div class="field">
+            <label for="boatName">Boat Name</label>
+            <input type="text" id="boatName" name="boatName" placeholder="e.g. Sea Sparrow" autocomplete="off">
+            <span class="error-msg">Enter the boat's name.</span>
+          </div>
+          <div class="field">
+            <label for="owner">Owner Name</label>
+            <input type="text" id="owner" name="owner" placeholder="e.g. Ramesh Kumar" autocomplete="off">
+            <span class="error-msg">Enter the owner's name.</span>
+          </div>
+          <div class="field">
+            <label for="boatNumber">Boat Number</label>
+            <input type="text" id="boatNumber" name="boatNumber" placeholder="e.g. KL-09-FB-1123" autocomplete="off">
+            <span class="error-msg">Enter the registration number.</span>
+          </div>
+          <div class="field">
+            <label for="fishingType">Fishing Type</label>
+            <select id="fishingType" name="fishingType">
+              <option value="">Select a type</option>
+              <option value="Trawling">Trawling</option>
+              <option value="Gillnet">Gillnet</option>
+              <option value="Hook & Line">Hook &amp; Line</option>
+              <option value="Purse Seine">Purse Seine</option>
+              <option value="Traditional Country Boat">Traditional Country Boat</option>
+            </select>
+            <span class="error-msg">Select a fishing type.</span>
+          </div>
+          <div class="field">
+            <label for="contact">Contact Number</label>
+            <input type="tel" id="contact" name="contact" placeholder="e.g. +91 98765 43210" autocomplete="off">
+            <span class="error-msg">Enter a valid contact number.</span>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Submit Entry</button>
+          <p class="form-note">Boats are added to the harbour's working log shown alongside this form, for demonstration purposes — the harbour office completes formal verification separately.</p>
+        </form>
+      </div>
+
+      <div>
+        <div class="card" style="margin-bottom:20px;">
+          <span class="card-tag">Before you register</span>
+          <h3>What you'll need</h3>
+          <ul style="margin:10px 0 0; padding-left:18px;">
+            <li>A valid boat registration number issued by the marine authority</li>
+            <li>Owner identification details</li>
+            <li>A reachable contact number for harbour notices</li>
+          </ul>
+        </div>
+        <div class="card" style="background:var(--navy); color:#fff; border:none;">
+          <h3 style="color:#fff;">Today's Logbook</h3>
+          <p style="color:#F1D9A4; opacity:.85; font-size:.88rem;">Recent demo entries below, stored on this device only.</p>
+          <div style="overflow-x:auto;">
+            <table class="market-table" style="min-width:0;">
+              <thead><tr><th>No.</th><th>Boat</th><th>Owner</th><th>Number</th><th>Type</th></tr></thead>
+              <tbody id="logTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer" id="site-footer"></footer>
+<script src="script.js"></script>
+</body>
+</html>
