@@ -104,24 +104,30 @@ function setupRegistrationForm() {
     document.getElementById(fieldId).closest(".field").classList.remove("invalid");
   }
 
-  function loadEntries() {
-    try {
-      return JSON.parse(localStorage.getItem("boatEntries") || "[]");
-    } catch {
-      return [];
-    }
-  }
-  function renderEntries() {
+  async function renderEntries() {
     if (!logTable) return;
-    const entries = loadEntries();
-    logTable.innerHTML = entries
-      .map(
-        (e, i) =>
-          `<tr><td class="mono">${String(i + 1).padStart(3, "0")}</td><td>${e.boatName}</td><td>${e.owner}</td><td class="mono">${e.boatNumber}</td><td>${e.fishingType}</td></tr>`
-      )
-      .join("") || `<tr><td colspan="5" style="opacity:.6;">No boats logged yet — be the first entry today.</td></tr>`;
-  }
-  renderEntries();
+
+    const response = await fetch("/api/Boats");
+    const entries = await response.json();
+
+    if (entries.length === 0) {
+        logTable.innerHTML =
+            `<tr><td colspan="5">No boats registered yet.</td></tr>`;
+        return;
+    }
+
+    logTable.innerHTML = entries.map((e, i) => `
+        <tr>
+            <td>${i + 1}</td>
+            <td>${e.boatName}</td>
+            <td>${e.ownerName}</td>
+            <td>${e.registrationNumber}</td>
+            <td>${e.capacity}</td>
+        </tr>
+    `).join("");
+}
+
+renderEntries();
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -142,16 +148,20 @@ function setupRegistrationForm() {
 
     if (!valid) return;
 
-    const entries = loadEntries();
-    entries.push({
-      boatName: boatName.value.trim(),
-      owner: owner.value.trim(),
-      boatNumber: boatNumber.value.trim(),
-      fishingType: fishingType.value,
-      contact: contact.value.trim(),
-    });
-    localStorage.setItem("boatEntries", JSON.stringify(entries));
-    renderEntries();
+    await fetch("/api/Boats", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        boatName: boatName.value.trim(),
+        ownerName: owner.value.trim(),
+        registrationNumber: boatNumber.value.trim(),
+        capacity: parseInt(contact.value)
+    })
+});
+
+await renderEntries();
 
     confirmBanner.classList.add("show");
     confirmBanner.querySelector("strong").textContent = `${boatName.value.trim()} logged successfully.`;
@@ -206,7 +216,7 @@ function setupContactForm() {
   const form = document.getElementById("contactForm");
   if (!form) return;
   const banner = document.getElementById("contactConfirm");
-  form.addEventListener("submit", (e) => {
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
     banner.classList.add("show");
     form.reset();
