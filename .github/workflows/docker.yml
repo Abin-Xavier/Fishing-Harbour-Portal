@@ -1,0 +1,42 @@
+name: Build and Deploy FishingAPI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Login to Docker Hub
+      uses: docker/login-action@v3
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+    - name: Build Docker Image
+      run: docker build -t abinxavier1030/fishingapi:latest ./Backend/FishingAPI
+
+    - name: Push Docker Image
+      run: docker push abinxavier1030/fishingapi:latest
+
+    - name: Deploy to EC2
+      uses: appleboy/ssh-action@v1.2.2
+      with:
+        host: ${{ secrets.EC2_HOST }}
+        username: ${{ secrets.EC2_USERNAME }}
+        key: ${{ secrets.EC2_SSH_KEY }}
+        script: |
+          docker pull abinxavier1030/fishingapi:latest
+          docker stop fishingapi || true
+          docker rm fishingapi || true
+          docker run -d \
+            --name fishingapi \
+            --restart always \
+            -p 8080:8080 \
+            abinxavier1030/fishingapi:latest
